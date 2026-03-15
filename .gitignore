@@ -1,0 +1,70 @@
+# ----------------------------
+# Node modules
+# ----------------------------
+crud-products-back/node_modules/
+crud-products-front/node_modules/
+
+# ----------------------------
+# Build outputs
+# ----------------------------
+crud-products-back/dist/
+crud-products-back/build/
+crud-products-back/.next/
+crud-products-front/.next/
+crud-products-front/out/
+crud-products-front/build/
+node_modules/
+.next/
+dist/
+build/
+
+
+# ----------------------------
+# Logs
+# ----------------------------
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ----------------------------
+# Environment variables
+# ----------------------------
+.env
+.env.*
+!.env.example
+
+# ----------------------------
+# Local databases / storage
+# ----------------------------
+crud-products-back/data/
+*.db
+
+# ----------------------------
+# IDE / Editor / OS
+# ----------------------------
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# ----------------------------
+# Misc / PEM / TypeScript
+# ----------------------------
+*.pem
+*.tsbuildinfo
+next-env.d.ts
+
+# ----------------------------
+# Vercel / deployment
+# ----------------------------
+.vercel/
+
+# ----------------------------
+# Coverage / test
+# ----------------------------
+/coverage
+
+.gitattributes

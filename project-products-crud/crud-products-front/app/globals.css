@@ -1,0 +1,234 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* LAYOUT */
+
+.dashboard {
+  display: flex;
+  height: 100vh;
+}
+
+.content {
+  flex: 1;
+}
+
+#backgroundPages {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1748bb, #00163a);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+/* SIDEBAR */
+
+.sidebar {
+  width: 240px;
+  background: #111827;
+  color: white;
+  padding: 30px 20px;
+}
+
+.logo {
+  margin-bottom: 30px;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #d1d5db;
+  padding: 10px;
+  border-radius: 6px;
+  transition: 0.2s;
+}
+
+.menu a:hover {
+  background: #374151;
+  color: white;
+}
+
+/* HOME */
+
+.home {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.homeContent {
+  text-align: center;
+}
+
+.title {
+  color: white;
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  color: #e5e7eb;
+  margin-bottom: 40px;
+}
+
+/* CARDS */
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 250px);
+  gap: 25px;
+  justify-content: center;
+}
+
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: #111827;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  transition: 0.25s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.card h2 {
+  margin-bottom: 10px;
+}
+
+/*  FORM / CREATE */
+
+.appContainer {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.registerContainer {
+  background: white;
+  padding: 40px;
+  width: 400px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.registerContainer h1 {
+  text-align: center;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.registerInput {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.registerInput:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 5px rgba(99,102,241,0.4);
+}
+
+/* BUTTON */
+
+button {
+  margin-top: 10px;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #6366f1;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  background: #4f46e5;
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* PRODUCT LIST */
+
+.listContainer {
+  width: 100%;
+}
+
+.listTitle {
+  font-size: 2.5rem;
+  color: #ffffff;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.productGrid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+}
+
+.productCard {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.productCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+}
+
+.productName {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 10px;
+}
+
+.productInfo {
+  font-size: 0.95rem;
+  color: #4b5563;
+  margin: 4px 0;
+}
+
+@media (max-width: 600px) {
+  .listTitle {
+    font-size: 2rem;
+  }
+
+  .productCard {
+    padding: 16px;
+  }
+}
