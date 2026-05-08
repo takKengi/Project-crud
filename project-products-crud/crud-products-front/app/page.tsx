@@ -20,16 +20,6 @@ export default function Home() {
             <p>Visualizar todos os produtos</p>
           </Link>
 
-          <Link href="/products/update" className="card">
-            <h2>✏️ Editar</h2>
-            <p>Atualizar informações</p>
-          </Link>
-
-          <Link href="/products/delete" className="card">
-            <h2>🗑 Remover</h2>
-            <p>Excluir produtos</p>
-          </Link>
-
         </div>
       </div>
 

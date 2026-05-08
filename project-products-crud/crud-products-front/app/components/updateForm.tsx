@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useParams } from "next/navigation";
 import Axios from "axios";
 
 type FormValues = {
@@ -9,14 +10,20 @@ type FormValues = {
   category?: string;
 };
 
-export default function ProductForm() {
+export default function ProductUpdateForm() {
+  const { id } = useParams();
   const [values, setValues] = useState<FormValues>({});
+
+  useEffect(() => {
+    Axios.get(`http://localhost:8000/products/${id}`).then((response) => {
+      setValues(response.data);
+    });
+  }, [id]);
 
   const handleChangeValues = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     const { name, value } = event.target;
-
     setValues((prevValue) => ({
       ...prevValue,
       [name]: value,
@@ -24,26 +31,26 @@ export default function ProductForm() {
   };
 
   const handleClickButton = () => {
-    Axios.post("http://localhost:8000/products", {
+    Axios.put(`http://localhost:8000/products/${id}`, {
       name: values.name,
       cost: values.cost,
       category: values.category,
-    }).then((response) => {
-      console.log(response);
-      alert("Produto Cadastrado")
+    }).then(() => {
+      alert("Produto atualizado com sucesso!");
     });
   };
 
   return (
     <div className="appContainer" id="backgroundPages">
       <div className="registerContainer">
-        <h1>Cadastrar produto</h1>
+        <h1>Editar produto</h1>
 
         <input
           type="text"
           name="name"
           placeholder="Nome"
           className="registerInput"
+          value={values.name || ""}
           onChange={handleChangeValues}
         />
 
@@ -52,6 +59,7 @@ export default function ProductForm() {
           name="cost"
           placeholder="Preço"
           className="registerInput"
+          value={values.cost || ""}
           onChange={handleChangeValues}
         />
 
@@ -60,6 +68,7 @@ export default function ProductForm() {
           name="category"
           placeholder="Categoria"
           className="registerInput"
+          value={values.category || ""}
           onChange={handleChangeValues}
         />
 
@@ -67,7 +76,7 @@ export default function ProductForm() {
           className="registerButton"
           onClick={handleClickButton}
         >
-          Cadastrar
+          Atualizar
         </button>
       </div>
     </div>

@@ -1,7 +1,7 @@
 import 'dotenv/config';
 import { ObjectId } from "mongodb";
 import conectarAoBanco from "../config/dbConfig.js";
-listProducts, createProducts, updateProducts, deleteProducts
+listProducts, getProductById, createProducts, updateProducts, deleteProducts
 const conexao = await conectarAoBanco(process.env.STRING_CONEXAO);
 
 export async function listProducts() {
@@ -9,6 +9,13 @@ export async function listProducts() {
   const colecao = db.collection("products");
   return colecao.find().toArray(); 
 };
+
+export async function getProductById(id) {
+  const db = conexao.db("store_db");
+  const colecao = db.collection("products");
+  const objID = new ObjectId(id)
+  return colecao.findOne({ _id: new ObjectId(objID) });
+}
 
 export async function createProducts(productData) {
   const db = conexao.db("store_db");
@@ -19,7 +26,7 @@ export async function createProducts(productData) {
 export async function updateProducts(id, productData) {
   const db = conexao.db("store_db");
   const colecao = db.collection("products");
-  const objID = ObjectId.createFromHexString(id)
+  const objID = new ObjectId(id)
   return colecao.updateOne({_id: new ObjectId(objID)}, {$set:productData});
 };
 

@@ -1,5 +1,5 @@
 import express from "express";
-import { listProductsControl, newProducts, productsId, delProducts } from "../controllers/productController.js";
+import { listProductsControl, newProducts, productsId, delProducts, listProductsByID } from "../controllers/productController.js";
 import cors from "cors";
 
 const corsOptions = {
@@ -12,6 +12,7 @@ const routes = (app) => {
   app.use(cors(corsOptions))
   app.get("/products", listProductsControl);
   app.post("/products", newProducts);
+  app.get("/products/:id", listProductsByID);
   app.put("/products/:id", productsId);
   app.delete("/products/:id", delProducts);
 };

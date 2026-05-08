@@ -112,6 +112,10 @@ body {
   margin-bottom: 10px;
 }
 
+.buttonsOnRead {
+  margin: 10;
+}
+
 /*  FORM / CREATE */
 
 .appContainer {

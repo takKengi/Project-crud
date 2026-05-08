@@ -1,8 +1,21 @@
-import { listProducts, createProducts, updateProducts, deleteProducts} from "../models/productModel.js";
+import { listProducts, getProductById, createProducts, updateProducts, deleteProducts} from "../models/productModel.js";
 
 export async function listProductsControl(req, res) {
   const products = await listProducts();
   res.status(200).json(products);
+};
+
+export async function listProductsByID(req, res) {
+  const { id } = req.params;
+  try {
+    const product = await getProductById(id); 
+    if (!product) {
+      return res.status(404).json({ error: "Produto não encontrado" });
+    }
+    res.json(product);
+  } catch (err) {
+    res.status(500).json({ error: "Erro ao buscar produto" });
+  }
 };
 
 export async function newProducts(req, res) {

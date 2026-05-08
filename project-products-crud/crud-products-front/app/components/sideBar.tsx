@@ -10,8 +10,8 @@ export default function Sidebar() {
         <Link href="/">🏠 Home</Link>
         <Link href="/products/create">➕ Cadastrar</Link>
         <Link href="/products/read">📦 Produtos</Link>
-        <Link href="/products/update">✏️ Editar</Link>
-        <Link href="/products/delete">🗑 Remover</Link>
+        {/* <Link href="/products/update">✏️ Editar</Link>
+        <Link href="/products/delete">🗑 Remover</Link> */}
       </nav>
 
     </aside>
