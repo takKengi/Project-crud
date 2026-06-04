@@ -6,7 +6,7 @@ import Axios from "axios";
 
 type FormValues = {
   name?: string;
-  cost?: string;
+  cost?: number;
   category?: string;
 };
 
@@ -33,7 +33,7 @@ export default function ProductUpdateForm() {
   const handleClickButton = () => {
     Axios.put(`http://localhost:8000/products/${id}`, {
       name: values.name,
-      cost: values.cost,
+      cost: Number(values.cost),
       category: values.category,
     }).then(() => {
       alert("Produto atualizado com sucesso!");
@@ -55,7 +55,7 @@ export default function ProductUpdateForm() {
         />
 
         <input
-          type="text"
+          type="number"
           name="cost"
           placeholder="Preço"
           className="registerInput"
