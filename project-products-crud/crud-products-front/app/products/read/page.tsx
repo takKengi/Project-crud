@@ -7,7 +7,7 @@ import HandleDelete from "../delete/page";
 type Products = {
   _id: number;
   name?: string;
-  cost?: string;
+  cost?: number;
   category?: string;
 };
 
